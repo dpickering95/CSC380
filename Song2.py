@@ -15,7 +15,14 @@ class Song2:
         ## don't want to read everything about every song we look at
         self.songID = songID
         self.features = sp.audio_features([songID]).pop()
+        self.track = sp.track(songID)['artists'].pop()
+        ##self.artists = self.track['artists'].pop()
+        
+        
 
     def getFeature(self, feat):
         return (self.features[feat])
+
+    def getArtist(self):
+        return (self.track['id'])
                         
