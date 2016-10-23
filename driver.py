@@ -10,5 +10,8 @@ test = Song2.Song2('spotify:track:31n9wiTDFnCE3WJNcSRqL9')
 #print(test.getFeature('liveness'))
 #print(test.getArtist())
 #print(test.getRelatedArtist())
-print(test.getTopTracks())
-## print whichever feature we want
+#print(test.getTopTracks())
+topTracks = test.getTopTracks()
+print(test.compare(topTracks))
+
+
