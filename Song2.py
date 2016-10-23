@@ -11,11 +11,18 @@ class Song2:
         sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
         ## sets up the app
 
-        sp.trace = False
+        sp.trace=False
         ## don't want to read everything about every song we look at
         self.songID = songID
         self.features = sp.audio_features([songID]).pop()
+        self.track = sp.track(songID)['artists'].pop()
+        ##self.artists = self.track['artists'].pop()
+        
+        
 
     def getFeature(self, feat):
         return (self.features[feat])
 
+    def getArtist(self):
+        return (self.track['id'])
+                        
