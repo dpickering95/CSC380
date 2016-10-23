@@ -27,14 +27,26 @@ class Song2:
     def getArtist(self):
         return (self.track['id'])
 
-    def getRelatedArtist(self):
+    def getRelatedArtist(self): # returns a list of 20 artist ids.
         relatedArtists = sp.Spotify.artist_related_artists(sp.Spotify(), self.getArtist())
         #print(relatedArtists)
         id_list = []
-        ids = relatedArtists['artists'].pop()
-        # for i in range(len(relatedArtists)):
-        #     ids = relatedArtists['artists']
-        #     id_list.append(ids)
-        print(ids)
+        ids = relatedArtists['artists']
+        for i in range(len(ids)):
+            var = ids[i]['id']
+            id_list.append(var)
+        return(id_list)
+
+    def getTopTracks(self):  # returns 10 track objects.
+        song_pool = []
+        related_artists = self.getRelatedArtist()
+        for i in range(len(related_artists)):
+            var = sp.Spotify.artist_top_tracks(sp.Spotify(), related_artists[i])
+            for i in range(len(var['tracks'])):
+                song_pool.append(var['tracks'][i]['id'])
+        print(len(song_pool))
+        return(song_pool)
+
+
 
 
