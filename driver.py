@@ -1,6 +1,6 @@
 from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy
-from CSC380 import Song2
+import Song2
 
 
 

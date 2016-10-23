@@ -53,16 +53,17 @@ class Song2:
         keywords = ['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness',
                     'liveness', 'valence', 'tempo']
         val = random.randrange(0, len(song_pool))
-        starting_song = [song_pool[val]]
-        song1_audio_feats = sp.Spotify.audio_features(sp.Spotify(), starting_song)
-        song_pool.remove(starting_song)
+        starting_song = Song2("spotify:track:" + song_pool[val])
+        # song1_audio_feats = sp.Spotify.audio_features(sp.Spotify(), starting_song)
+        del(song_pool[val])
         difference_values = []
         difference_value = 0
         for i in range(len(song_pool)):
             # features for each song
-            song2_audio_feats = sp.Spotify.audio_features(sp.Spotify(), [song_pool[i]])
+            current_song = Song2("spotify:track:" + song_pool[i])
+            # song2_audio_feats = sp.Spotify.audio_features(sp.Spotify(), [song_pool[i]])
             for j in range(len(keywords)):
-                difference_value += abs(song2_audio_feats[keywords[j]] - song1_audio_feats[keywords[j]])
+                difference_value += abs(starting_song.getFeature(keywords[j]) - current_song.getFeature(keywords[j]))
             difference_values.append(difference_value)
         index = np.argmin(difference_values)
         new_song_id = song_pool[index]
