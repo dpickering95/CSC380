@@ -1,5 +1,7 @@
 from spotipy.oauth2 import SpotifyClientCredentials
 import spotipy as sp
+import random
+import numpy as np
 
 class Song2:
     """ A song in Spot represents the current state of the HMM """
@@ -46,6 +48,29 @@ class Song2:
                 song_pool.append(var['tracks'][i]['id'])
         print(len(song_pool))
         return(song_pool)
+
+    def compare(self, song_pool):
+        keywords = ['danceability', 'energy', 'key', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness',
+                    'liveness', 'valence', 'tempo']
+        val = random.randrange(0, len(song_pool))
+        starting_song = [song_pool[val]]
+        song1_audio_feats = sp.Spotify.audio_features(sp.Spotify(), starting_song)
+        song_pool.remove(starting_song)
+        difference_values = []
+        difference_value = 0
+        for i in range(len(song_pool)):
+            # features for each song
+            song2_audio_feats = sp.Spotify.audio_features(sp.Spotify(), [song_pool[i]])
+            for j in range(len(keywords)):
+                difference_value += abs(song2_audio_feats[keywords[j]] - song1_audio_feats[keywords[j]])
+            difference_values.append(difference_value)
+        index = np.argmin(difference_values)
+        new_song_id = song_pool[index]
+        return(new_song_id)
+
+
+
+
 
 
 
