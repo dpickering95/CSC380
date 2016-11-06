@@ -54,7 +54,7 @@ class Song2:
         keywords = ['danceability', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'tempo']
         #val = random.randrange(0, len(song_pool))
         for i in range(len(song_pool)):  # get 1 song
-            starting_song = Song2("spotify:track:" + song_pool[i])
+            starting_song = Song2("spotify:track:" + song_pool[i][0])
             # song1_audio_feats = sp.Spotify.audio_features(sp.Spotify(), starting_song)
             #del(song_pool[i])
             difference_values = []
@@ -121,6 +121,18 @@ class Song2:
             row = index
             min = 1000
             count += 1
+
+    def fisher_yates(self,song_pool):
+        i = len(song_pool) - 1
+        while i > 0:
+            s = random.randint(0, i)
+            song_pool[s], song_pool[i] = song_pool[i], song_pool[s]
+            i -= 1
+        for i in range(10):
+            print(song_pool[i][0])
+
+
+
 
 
 

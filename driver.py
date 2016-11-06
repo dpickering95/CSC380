@@ -12,7 +12,8 @@ test = Song2.Song2('spotify:track:31n9wiTDFnCE3WJNcSRqL9')
 #print(test.getRelatedArtist())
 #print(test.getTopTracks())
 songPool = test.getTopTracks()
-nextSong = test.next_song(songPool)
+#nextSong = test.next_song(songPool)
+fisher = test.fisher_yates(songPool)
 #print(test.compare(topTracks))
 
 
