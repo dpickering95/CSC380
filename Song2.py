@@ -122,6 +122,18 @@ class Song2:
             min = 1000
             count += 1
 
+    def fisher_yates(self,song_pool):
+        i = len(song_pool) - 1
+        while i > 0:
+            s = random.randint(0, i)
+            song_pool[s], song_pool[i] = song_pool[i], song_pool[s]
+            i -= 1
+        for i in range(10):
+            print(song_pool[i][0])
+
+
+
+
 
 
 
