@@ -54,14 +54,14 @@ class Song2:
         keywords = ['danceability', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness', 'tempo']
         #val = random.randrange(0, len(song_pool))
         for i in range(len(song_pool)):  # get 1 song
-            starting_song = Song2("spotify:track:" + song_pool[i])
+            starting_song = Song2("spotify:track:" + song_pool[i][0])
             # song1_audio_feats = sp.Spotify.audio_features(sp.Spotify(), starting_song)
             #del(song_pool[i])
             difference_values = []
             for i in range(len(song_pool)): #compare it to all other songs
                 #print(i)
                 # features for each song
-                current_song = Song2("spotify:track:" + song_pool[i])
+                current_song = Song2("spotify:track:" + song_pool[i][0])
                 #song2_audio_feats = sp.Spotify.audio_features(sp.Spotify(), [song_pool[i]])
                 difference_value = 0
                 for j in range(len(keywords)):
