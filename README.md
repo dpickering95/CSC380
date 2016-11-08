@@ -13,7 +13,7 @@ pyvenv venv
 
 That should set up the virtual environment
 
-To activate the virtual environment source /venv/bin/activate will start it, your propmt will now be preceded by a (venv) letting you know it's active.
+To activate the virtual environment source /venv/bin/activate will start it, your prompt will now be preceded by a (venv) letting you know it's active.
 
 To deactivate simply enter:
 
@@ -47,5 +47,7 @@ Data:  I kinda just want to dump data to a csv in the running directory, with th
 Server environment isn't ready.  I'm also going to work on this Wednesday evening.  I think (hope) we should be able to wrap everything up Thursday during class.
 
 NOTES:
+
+You just need the file spot.py and the templates directory to run it.  The python directory (poorly name, sorry) isn't necessary.  Everything else in my branch also is not necessary for the flask app to run.
 
 
