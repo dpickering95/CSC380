@@ -3,6 +3,7 @@
 # Seed Song is spotify:track:4US41qlynueHuB4czgwqi8   #
 # "Throwing Stones" by Greatful Dead                  #
 #*****************************************************#
+import numpy as np
 
 class pl1:
 
@@ -58,12 +59,11 @@ class pl1:
 		
 
 	def next_track(self, action):
-		# print(self.songNum)
 		self.flag_current_song_done()
 		if action == 'finish':
-			
+			currentSongNum = self.songNum
 			row = self.songNum		
-			thresh1 = (self.AVDIFF/2)
+			thresh1 = (self.AVDIFF/4)
 			thresh2 = (self.AVDIFF/2)
 
 			for i in range(len(self.prob_matrix[row])):
@@ -72,10 +72,13 @@ class pl1:
 				elif self.song_pool[i][1] == 1:
 					if (self.prob_matrix[row][i] < thresh1):
 						self.track = self.song_pool[i][0]
-						print(self.songNum)
 						self.songNum = i
-						print(self.songNum)
 						break
+
+			if self.songNum == currentSongNum:
+				temp = self.prob_matrix[row]
+				temp.pop(row)
+				self.songNum = np.argmin(temp)
 
 	def avDiff(self):
 		## avDiff is the same for all rows
