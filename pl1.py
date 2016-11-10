@@ -58,6 +58,7 @@ class pl1:
 		
 
 	def next_track(self, action):
+		# print(self.songNum)
 		self.flag_current_song_done()
 		if action == 'finish':
 			
@@ -66,12 +67,14 @@ class pl1:
 			thresh2 = (self.AVDIFF/2)
 
 			for i in range(len(self.prob_matrix[row])):
-				if self.song_pool[row] == i:
+				if row == i:
 					continue
-				elif self.song_pool[row][1] == 1:
-					if self.prob_matrix[row][i] < thresh1 or self.prob_matrix[row][i] > thresh2:
+				elif self.song_pool[i][1] == 1:
+					if (self.prob_matrix[row][i] < thresh1):
 						self.track = self.song_pool[i][0]
+						print(self.songNum)
 						self.songNum = i
+						print(self.songNum)
 						break
 
 	def avDiff(self):
