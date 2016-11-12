@@ -6,7 +6,7 @@
 
 import numpy as np
 
-class pl8
+class pl8:
 
 	def __init__(self):
 
