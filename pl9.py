@@ -34,7 +34,7 @@ class pl9:
 
 			currentSongNum = self.songNum
 			row = self.songNum
-			thresh1 = (self.AVDIFF/4)
+			thresh1 = (self.AVDIFF/3)
 
 			for i in range(len(self.prob_matrix[row])):
 				if row == i:
@@ -54,11 +54,16 @@ class pl9:
 
 			currentSongNum = self.songNum
 			row = self.songNum
+			thresh = (self.AVDIFF/4)
 
-			if self.songNum == currentSongNum:
-				temp = self.prob_matrix[row]
-				temp.pop(row)
-				self.songNum = np.argmin(temp)
+			for i in range(len(self.prob_matrix[row])):
+				if row == i:
+					continue
+				elif self.song_pool[i][1] == 0:
+					if self.prob_matrix[row][i] < thresh:
+						self.track = self.song_pool[i][0]
+						self.songNum = i
+						break
 
 			if self.songNum == currentSongNum:
 				temp = self.prob_matrix[row]
@@ -67,6 +72,7 @@ class pl9:
 
 		elif action == 'dislike':
 
+			currentSongNum = self.songNum			
 			row = self.songNum
 			thresh1 = (self.AVDIFF)
 
@@ -86,6 +92,7 @@ class pl9:
 
 		elif action == 'skip':
 
+			currentSongNum = self.songNum
 			row = self.songNum
 			thresh1 = (self.AVDIFF/2)
 
