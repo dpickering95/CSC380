@@ -3,7 +3,9 @@
 # Seed Song is spotify:track:4US41qlynueHuB4czgwqi8   #
 # "Throwing Stones" by Greatful Dead                  #
 #*****************************************************#
+
 import numpy as np
+
 
 class pl1:
 
@@ -11,7 +13,7 @@ class pl1:
 
 		self.songNum = 0 ## start counting from 0
 
-		self.song_pool = [['60VcYHxoyOdZyFb1EaKJdN', 1], ['7jqxc3zCMwgi5JpYYWSPnO', 1], ['0fWe4v0BssKanrISjrYQ6T', 1], ['4qtvH9XElVrIYJ4R6dtePd', 1], ['3GtzidVERnat4IUCDtfRFb', 1], ['2x0supcZhd6NEH1nem9DnR', 1], ['2J0gSjejsefbV0TT8x8HxT', 1], ['35Myb6spNkKlRsZQcm95mP', 1], ['5gm95Qm0tUbBhckpCjR6Nc', 1], ['3GrLhTnxkqvG7sWszeCJy1', 1], ['4JwjzS9WFkWlpzGCwh82fn', 1], ['6FRBXNFfkFLONhrBwFenMx', 1], ['2fx1hkMHTVdDim274rwoPa', 1], ['5dBjkXiKkW66h625J6HdAo', 1], ['6Sgb8bxj8LqqW5QKGjzDWg', 1], ['0sDqo9UPzPUtu9wEkI3zRB', 1], ['4pZnAgLfd3tMBzXcUbfdqJ', 1], ['0SDPAqbWH5P5XGBY1wL7Wc', 1], ['0fbg5RN0bV7xqyJ0eaUD32', 1], ['3fwBARTubrCw4DQosyizcP', 1], ['60Rw5qamwihreiPlNM2pcZ', 1], ['2XXGM19E3Zp32Tkr0S4vEA', 1], ['69BhgVzGUe3V4QMFekmttL', 1], ['3rwFEFOQl8tCgJX96qRTX3', 1], ['1c3Q9jT16mm2FKwgxDKjaK', 1], ['64lGOBE0UWUkRXOzMP7Lmr', 1], ['5Ca147MgjWPIaY6WIrMhFO', 1], ['0leJbPzMGogMSlENibTm9B', 1], ['1gCE4LxErCB25MSERdLCZX', 1], ['6CMcrb7oQalm6lCfa1S1WR', 1]]
+		self.song_pool = [['60VcYHxoyOdZyFb1EaKJdN', 0], ['7jqxc3zCMwgi5JpYYWSPnO', 0], ['0fWe4v0BssKanrISjrYQ6T', 0], ['4qtvH9XElVrIYJ4R6dtePd', 0], ['3GtzidVERnat4IUCDtfRFb', 0], ['2x0supcZhd6NEH1nem9DnR', 0], ['2J0gSjejsefbV0TT8x8HxT', 0], ['35Myb6spNkKlRsZQcm95mP', 0], ['5gm95Qm0tUbBhckpCjR6Nc', 0], ['3GrLhTnxkqvG7sWszeCJy1', 0], ['4JwjzS9WFkWlpzGCwh82fn', 0], ['6FRBXNFfkFLONhrBwFenMx', 0], ['2fx1hkMHTVdDim274rwoPa', 0], ['5dBjkXiKkW66h625J6HdAo', 0], ['6Sgb8bxj8LqqW5QKGjzDWg', 0], ['0sDqo9UPzPUtu9wEkI3zRB', 0], ['4pZnAgLfd3tMBzXcUbfdqJ', 0], ['0SDPAqbWH5P5XGBY1wL7Wc', 0], ['0fbg5RN0bV7xqyJ0eaUD32', 0], ['3fwBARTubrCw4DQosyizcP', 0], ['60Rw5qamwihreiPlNM2pcZ', 0], ['2XXGM19E3Zp32Tkr0S4vEA', 0], ['69BhgVzGUe3V4QMFekmttL', 0], ['3rwFEFOQl8tCgJX96qRTX3', 0], ['1c3Q9jT16mm2FKwgxDKjaK', 0], ['64lGOBE0UWUkRXOzMP7Lmr', 0], ['5Ca147MgjWPIaY6WIrMhFO', 0], ['0leJbPzMGogMSlENibTm9B', 0], ['1gCE4LxErCB25MSERdLCZX', 0], ['6CMcrb7oQalm6lCfa1S1WR', 0]]
 
 		self.prob_matrix = [[0.0, 73.41969999999999, 62.5888, 90.28699302, 77.72064999999999, 38.611709999999995, 49.09759999999999, 92.28, 37.1562, 57.457629999999995, 94.47354929999999, 66.95826599999998, 75.81580999999998, 49.3848524, 49.823799999999984, 99.11366, 68.715, 78.12673, 70.13539999999999, 85.77629999999999, 31.171595699999987, 45.91569999999999, 75.05229849999999, 29.50774999999999, 83.00393, 30.332251599999992, 48.5012, 63.36503999999999, 74.75719999999998, 48.72485509999999], 
 [73.41969999999999, 0.0, 12.483899999999993, 29.96149302, 8.103749999999994, 35.45201, 29.646700000000006, 33.0007, 38.862899999999996, 18.829929999999997, 34.206849299999995, 14.804566000000005, 15.582709999999995, 26.9281524, 30.32390000000001, 35.534560000000006, 11.043299999999993, 17.929030000000004, 9.628100000000003, 25.361399999999996, 42.99169570000001, 28.816000000000006, 14.686598499999999, 45.60085, 22.164229999999996, 45.520951600000004, 26.119499999999995, 10.611740000000001, 13.518299999999993, 27.489155100000005], 
@@ -50,27 +52,25 @@ class pl1:
 	def flag_current_song_done(self):
 		print("flag called, songNum = " + str(self.songNum))
 		row = self.songNum
-		self.song_pool[self.songNum][1] = 0
-		
+		self.song_pool[row][1] = 1
 
 	def get_current_track(self):
 		print(self.track)
 		return self.track
-		
 
 	def next_track(self, action):
 		self.flag_current_song_done()
 		if action == 'finish':
+
 			currentSongNum = self.songNum
-			row = self.songNum		
-			thresh1 = (self.AVDIFF/4)
-			thresh2 = (self.AVDIFF/2)
+			row = self.songNum
+			thresh1 = (self.AVDIFF/3)
 
 			for i in range(len(self.prob_matrix[row])):
 				if row == i:
 					continue
-				elif self.song_pool[i][1] == 1:
-					if (self.prob_matrix[row][i] < thresh1):
+				elif self.song_pool[i][1] == 0:
+					if self.prob_matrix[row][i] < thresh1:
 						self.track = self.song_pool[i][0]
 						self.songNum = i
 						break
@@ -80,6 +80,66 @@ class pl1:
 				temp.pop(row)
 				self.songNum = np.argmin(temp)
 
+		elif action == 'like':
+
+			currentSongNum = self.songNum
+			row = self.songNum
+			thresh = (self.AVDIFF/4)
+
+			for i in range(len(self.prob_matrix[row])):
+				if row == i:
+					continue
+				elif self.song_pool[i][1] == 0:
+					if self.prob_matrix[row][i] < thresh:
+						self.track = self.song_pool[i][0]
+						self.songNum = i
+						break
+
+			if self.songNum == currentSongNum:
+				temp = self.prob_matrix[row]
+				temp.pop(row)
+				self.songNum = np.argmin(temp)
+
+		elif action == 'dislike':
+
+			currentSongNum = self.songNum
+			row = self.songNum
+			thresh1 = (self.AVDIFF)
+
+			for i in range(len(self.prob_matrix[row])):
+				if row == i:
+					continue
+				elif self.song_pool[i][1] == 0:
+					if self.prob_matrix[row][i] > thresh1:
+						self.track = self.song_pool[i][0]
+						self.songNum = i
+						break
+
+			if self.songNum == currentSongNum:
+				temp = self.prob_matrix[row]
+				temp.pop(row)
+				self.songNum = np.argmax(temp)
+
+		elif action == 'skip':
+
+			currentSongNum = self.songNum
+			row = self.songNum
+			thresh1 = (self.AVDIFF/2)
+
+			for i in range(len(self.prob_matrix[row])):
+				if row == i:
+					continue
+				elif self.song_pool[i][1] == 0:
+					if self.prob_matrix[row][i] > thresh1:
+						self.track = self.song_pool[i][0]
+						self.songNum = i
+						break
+
+			if self.songNum == currentSongNum:
+				temp = self.prob_matrix[row]
+				temp.pop(row)
+				self.songNum = np.argmax(temp)
+
 	def avDiff(self):
 		## avDiff is the same for all rows
 		row = 0
@@ -88,10 +148,3 @@ class pl1:
 		for i in range(len(self.prob_matrix[row])):
 			tot = tot + self.prob_matrix[row][i]
 		return tot/len(self.prob_matrix)
-
-		
-
-	
-
-
-
