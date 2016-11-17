@@ -67,7 +67,7 @@ class Song2:
                 for j in range(len(keywords)):
                      difference_value += abs(starting_song.getFeature(keywords[j]) - current_song.getFeature(keywords[j]))
                 difference_values.append(difference_value)
-                print(difference_value)
+                # print(difference_value)
             prob_matrix.append(difference_values)
             #index = np.argmin(difference_values)
             #new_song_id = song_pool[index]
